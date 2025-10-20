@@ -1,0 +1,38 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Testing\Fluent\Concerns\Has;
+
+class Supplier extends Model
+{
+    use HasFactory;
+
+    protected $fillable = [
+        'identity_id',
+        'document_number',
+        'name',
+        'address',
+        'email',
+        'phone',
+    ];
+
+    //Relación uno a muchos inversa
+    public function identity()
+    {
+        return $this->belongsTo(Identity::class);
+    }
+
+    //Relación uno a muchos
+    public function purchaseOrders()
+    {
+        return $this->hasMany(PurchaseOrder::class);
+    }
+
+    public function purchases()
+    {
+        return $this->hasMany(Purchase::class);
+    }
+}
