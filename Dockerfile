@@ -12,10 +12,14 @@ RUN composer install --no-dev --prefer-dist --no-progress --no-interaction --no-
 # ===== Etapa 2: Build de assets =====
 FROM node:18 AS build
 WORKDIR /app
+
 COPY package*.json ./
 RUN npm ci
+
 COPY . .
+
 COPY --from=vendor /app/vendor /app/vendor
+
 RUN npm run build
 
 # ===== Etapa 3: Runtime PHP + Apache =====
@@ -36,12 +40,10 @@ RUN set -eux; \
     a2enmod rewrite; \
     rm -rf /var/lib/apt/lists/*
 
-# Copiar código, vendor y build
 COPY . .
 COPY --from=vendor /app/vendor /var/www/html/vendor
 COPY --from=build /app/public/build /var/www/html/public/build
 
-# Permisos Laravel
 RUN chown -R www-data:www-data storage bootstrap/cache
 
 EXPOSE 80
