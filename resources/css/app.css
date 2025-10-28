@@ -1,10 +1,8 @@
-@import "flowbite/src/themes/default";
-@plugin "flowbite/plugin";
-@source "../../node_modules/flowbite";
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ✅ No importa "flowbite" aquí, ya se usa desde tailwind.config.js */
 
 [x-cloak] {
     display: none;
