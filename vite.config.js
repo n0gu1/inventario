@@ -1,8 +1,9 @@
+// vite.config.js
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
 
 export default defineConfig({
-    base: '/build/', // 👈 asegúrate de que Vite genere URLs relativas correctas
+    base: '/build/', // URLs relativas correctas para producción
     plugins: [
         laravel({
             input: ['resources/css/app.css', 'resources/js/app.js'],
@@ -10,10 +11,12 @@ export default defineConfig({
         }),
     ],
     build: {
-        outDir: 'public/build', // 👈 genera los assets y manifest aquí
-        manifest: true,         // 👈 Laravel necesita este manifest en producción
+        outDir: 'public/build',     // Carpeta de salida para assets
+        manifest: true,             // Laravel necesita este archivo
+        manifestDir: '.',           
+        emptyOutDir: true,          // Limpia /build antes de generar
         rollupOptions: {
-            input: 'resources/js/app.js', // 👈 punto de entrada
+            input: 'resources/js/app.js', // Punto de entrada
         },
     },
 });
