@@ -10,6 +10,6 @@
 
 ]">
 
-Bienvenida inventario umg
+Mio
 
 </x-admin-layout>
