@@ -10,6 +10,6 @@
 
 ]">
 
-Hola Hola
+BIENVENIDO A NUESTRA TIENDA ONLINE
 
 </x-admin-layout>
