@@ -10,6 +10,6 @@
 
 ]">
 
-BIENVENIDO A NUESTRA TIENDA ONLINE
+Bienvenida inventario umg
 
 </x-admin-layout>
