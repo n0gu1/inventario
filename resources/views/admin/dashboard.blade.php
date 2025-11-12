@@ -10,6 +10,6 @@
 
 ]">
 
-Mio
+Haz ingresado a la mejor tienda ONLINE
 
 </x-admin-layout>
