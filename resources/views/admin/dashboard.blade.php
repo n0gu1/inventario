@@ -4,7 +4,7 @@
         'href' => route('admin.dashboard'),
     ],
     [
-        'name' => 'Pruebas',
+        'name' => 'EMPRESA SIUCOM',
     ]
 
 
