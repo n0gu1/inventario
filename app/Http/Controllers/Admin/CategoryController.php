@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Gate;
 class CategoryController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the resource
      */
     public function index()
     {
