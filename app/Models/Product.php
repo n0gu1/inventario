@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Facades\Storage;
 
 class Product extends Model
-{   
+{
     use HasFactory;
 
     protected $fillable = [
@@ -26,7 +26,8 @@ class Product extends Model
     protected function image(): Attribute
     {
         return Attribute::make(
-            get: fn () => $this->images->count() ? Storage::url($this->images->first()->path) : 'https://dicesabajio.com.mx/wp-content/uploads/2021/06/no-image.jpeg',
+            // get: fn () => $this->images->count() ? Storage::url($this->images->first()->path) : 'https://dicesabajio.com.mx/wp-content/uploads/2021/06/no-image.jpeg',
+            get: fn() => $this->images->count() ? Storage::disk('public')->url($this->images->first()->path) : 'https://dicesabajio.com.mx/wp-content/uploads/2021/06/no-image.jpeg',
         );
     }
 
