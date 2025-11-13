@@ -126,8 +126,7 @@ class ProductController extends Controller
     {
         Gate::authorize('update-products');
         $image = $product->images()->create([
-            // 'path' => Storage::put('/images', $request->file('file')),
-            'path' => $request->file('file')->store('images', 'public'),
+            'path' => Storage::put('/images', $request->file('file')),
             'size' => $request->file('file')->getSize(),
         ]);
 

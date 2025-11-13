@@ -73,7 +73,7 @@
                         size: image.size,
                     };
 
-                    // myDropzone.displayExistingFile(mockFile, `{{ Storage::url('${image.path}') }}`);
+                    myDropzone.displayExistingFile(mockFile, `{{ Storage::url('${image.path}') }}`);
                     myDropzone.displayExistingFile(mockFile, `{{ Storage::disk('public')->url('${image.path}') }}`);
                     myDropzone.emit("complete", mockFile);
                     myDropzone.files.push(mockFile);
